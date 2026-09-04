@@ -20,5 +20,20 @@
             android:name="com.google.wear.watchface.format.publisher"
             android:value="Gautier7799" />
             
+        <!-- هذا هو جزء الـ Service المفقود والذي بدونه لن تظهر الواجهة -->
+        <service
+            android:name="androidx.wear.watchface.WatchFaceService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/watch_face_info" />
+        </service>
+            
     </application>
 </manifest>
