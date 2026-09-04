@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace width="450" height="450">
+    <Scene backgroundColor="#000000">
+        <Group x="0" y="0" width="450" height="450">
+
+            <!-- Top Digital Info (Date & Time) -->
+            <PartText x="0" y="90" width="450" height="100">
+                <Text align="CENTER">
+                    <Font family="SYNC" size="24" color="#F87040" weight="BOLD">
+                        <Template>
+                            %s-%s
+                            <Parameter expression="[MONTH]" />
+                            <Parameter expression="[DAY]" />
+                        </Template>
+                    </Font>
+                </Text>
+            </PartText>
+            
+            <PartText x="0" y="120" width="450" height="100">
+                <Text align="CENTER">
+                    <Font family="SYNC" size="28" color="#F87040" weight="BOLD">
+                        <Template>
+                            %s:%s:%s %s
+                            <Parameter expression="[HOUR_1_12_Z]" />
+                            <Parameter expression="[MINUTE_Z]" />
+                            <Parameter expression="[SECOND_Z]" />
+                            <Parameter expression="[AMPM]" />
+                        </Template>
+                    </Font>
+                </Text>
+            </PartText>
+
+            <!-- Edge Complication: Battery Arc -->
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Arc centerX="225" centerY="225" width="410" height="410" startAngle="200" endAngle="270" direction="CLOCKWISE">
+                    <Stroke color="#4A2C20" thickness="12" cap="ROUND" />
+                </Arc>
+            </PartDraw>
+            
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Arc centerX="225" centerY="225" width="410" height="410" startAngle="200" endAngle="200" direction="CLOCKWISE">
+                    <Transform target="endAngle" value="200 + ([BATTERY_PERCENT] / 100 * 70)" />
+                    <Stroke color="#F87040" thickness="12" cap="ROUND" />
+                </Arc>
+            </PartDraw>
+            
+            <!-- Battery Percentage Text -->
+            <Group x="0" y="0" width="450" height="450" pivotX="225" pivotY="225">
+                <Transform target="angle" value="-45" />
+                <PartText x="40" y="210" width="80" height="40">
+                    <Text align="CENTER">
+                        <Font family="SYNC" size="20" color="#FFFFFF" weight="BOLD">
+                            <Template>
+                                %s%%
+                                <Parameter expression="[BATTERY_PERCENT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Group>
+
+            <!-- Analog Hands -->
+            <!-- Hour Hand -->
+            <Group x="0" y="0" width="450" height="450" pivotX="225" pivotY="225">
+                <Transform target="angle" value="([HOUR_0_11] * 30) + ([MINUTE] / 2)" />
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Line startX="225" startY="225" endX="225" endY="110">
+                        <Stroke color="#EBEBEB" thickness="14" cap="ROUND" />
+                    </Line>
+                </PartDraw>
+            </Group>
+            
+            <!-- Minute Hand -->
+            <Group x="0" y="0" width="450" height="450" pivotX="225" pivotY="225">
+                <Transform target="angle" value="([MINUTE] * 6) + ([SECOND] / 10)" />
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Line startX="225" startY="225" endX="225" endY="70">
+                        <Stroke color="#EBEBEB" thickness="10" cap="ROUND" />
+                    </Line>
+                </PartDraw>
+            </Group>
+            
+            <!-- Second Hand -->
+            <Group x="0" y="0" width="450" height="450" pivotX="225" pivotY="225">
+                <Transform target="angle" value="[SECOND] * 6" />
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Line startX="225" startY="225" endX="225" endY="250">
+                        <Stroke color="#F87040" thickness="4" cap="ROUND" />
+                    </Line>
+                    <Line startX="225" startY="225" endX="225" endY="50">
+                        <Stroke color="#F87040" thickness="4" cap="ROUND" />
+                    </Line>
+                </PartDraw>
+            </Group>
+            
+            <!-- Center Dot -->
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Circle centerX="225" centerY="225" radius="8">
+                    <Stroke color="#F87040" thickness="6" />
+                </Circle>
+                <Circle centerX="225" centerY="225" radius="4">
+                    <Stroke color="#000000" thickness="4" />
+                </Circle>
+            </PartDraw>
+
+        </Group>
+    </Scene>
+</WatchFace>
