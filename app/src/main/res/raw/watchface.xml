@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace width="450" height="450">
+    <Scene backgroundColor="#000000">
+        <!-- وقت الساعة الرقمية في المنتصف -->
+        <TimeText format="HH:mm" x="225" y="225" width="450" height="150" pivotX="0.5" pivotY="0.5" tintColor="#F87040">
+            <Font family="SYNC_TO_DEVICE" size="90" weight="700" />
+        </TimeText>
+    </Scene>
+</WatchFace>
