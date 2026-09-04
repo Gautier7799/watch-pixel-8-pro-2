@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WatchFaceInfo>
-    <!-- سنضيف صورة لاحقاً، حالياً نتركه فارغاً لكي لا يسبب خطأ -->
+    <!-- هذا السطر هو الذي سينقذ الموقف! -->
+    <Preview value="@drawable/preview" />
     <Category value="CATEGORY_EMPTY" />
     <AvailableInRetail value="true" />
     <MultipleInstancesAllowed value="true" />
     <Editable value="true" />
-    <FlavorsSupported value="true" />
 </WatchFaceInfo>
