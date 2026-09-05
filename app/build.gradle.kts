@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.gautier7799.watchfaces"
         // هذا هو التغيير الحاسم الذي سيجعل الساعة تقبل الواجهة!
-        minSdk = 33
+        minSdk = 35
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
