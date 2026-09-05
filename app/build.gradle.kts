@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -8,9 +9,20 @@ android {
 
     defaultConfig {
         applicationId = "com.gautier7799.watchfaces"
-        minSdk = 30
+        // هذا هو التغيير الحاسم الذي سيجعل الساعة تقبل الواجهة!
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
 }
