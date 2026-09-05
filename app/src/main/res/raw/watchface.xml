@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WatchFace width="450" height="450">
     <Scene backgroundColor="#000000">
-        <!-- وقت الساعة الرقمية في المنتصف -->
-        <TimeText format="HH:mm" x="225" y="225" width="450" height="150" pivotX="0.5" pivotY="0.5" tintColor="#F87040">
+        <!-- وقت الساعة الرقمية تم رفعه للأعلى قليلاً -->
+        <TimeText format="HH:mm" x="225" y="180" width="450" height="150" pivotX="0.5" pivotY="0.5" tintColor="#F87040">
             <Font family="SYNC_TO_DEVICE" size="90" weight="700" />
         </TimeText>
+
+        <!-- مربع الإضافات (Complication) في الأسفل لطلب الأذونات التلقائية -->
+        <ComplicationSlot x="175" y="280" width="100" height="100" slotId="1" supportedTypes="SHORT_TEXT EMPTY">
+            <ComplicationFormatter>
+                <Complication type="SHORT_TEXT">
+                    <Text x="50" y="50" width="100" height="50" pivotX="0.5" pivotY="0.5" alignment="center">
+                        <Font family="SYNC_TO_DEVICE" size="30" weight="500" color="#FFFFFF" />
+                        <ComplicationText />
+                    </Text>
+                </Complication>
+            </ComplicationFormatter>
+        </ComplicationSlot>
     </Scene>
 </WatchFace>
